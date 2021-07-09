@@ -1,6 +1,7 @@
 package com.example.listawear;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -29,14 +30,21 @@ public class MainActivity extends Activity {
 
         recyclerView.setLayoutManager(layoutManager);
 
-        items.add(new ItemsList(R.mipmap.flutter,"Flutter"));
-        items.add(new ItemsList(R.mipmap.java,"Java"));
-        items.add(new ItemsList(R.mipmap.cplus,"C#"));
-        items.add(new ItemsList(R.mipmap.php,"PHP"));
-        items.add(new ItemsList(R.mipmap.javascript,"JavaScript"));
+        items.add(new ItemsList(R.mipmap.flutter, "Flutter", "Curso de Flutter"));
+        items.add(new ItemsList(R.mipmap.java, "Java", "Curso de Java"));
+        items.add(new ItemsList(R.mipmap.cplus, "C#", "Curso de C#"));
+        items.add(new ItemsList(R.mipmap.php, "PHP", "Curso de PHP"));
+        items.add(new ItemsList(R.mipmap.javascript, "JavaScript", "Curso de Javascript"));
 
-
-        ListAdapter listAdapter = new ListAdapter(items);
+        ListAdapter listAdapter = new ListAdapter(items, new ListAdapter.AdapterCallback() {
+            @Override
+            public void onItemClicked(View v, int itemPosition) {
+                Intent intent = new Intent(getApplicationContext(), CardActivity.class);
+                intent.putExtra("titulo", items.get(itemPosition).getNameItem());
+                intent.putExtra("descripcion", items.get(itemPosition).getDescriptionItem());
+                startActivity(intent);
+            }
+        });
 
         recyclerView.setAdapter(listAdapter);
 
