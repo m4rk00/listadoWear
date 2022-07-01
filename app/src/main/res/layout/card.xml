@@ -16,6 +16,7 @@
             android:layout_height="fill_parent">
 
             <LinearLayout
+                android:paddingTop="25dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -27,6 +28,7 @@
                     android:layout_height="match_parent"
                     android:text="Titulo"
                     android:textColor="@color/black"
+                    android:textStyle="bold"
                     android:textSize="18sp"/>
 
                 <TextView
@@ -36,7 +38,17 @@
                     android:text="Descripcion del Card"
                     android:textColor="@color/black"
                     android:textSize="12sp"
+                    android:paddingBottom="5dp"
                     />
+
+                <Button
+                    android:id="@+id/btnRegistro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:text="¡Registrame!"
+                    />
+
                 <Button
                     android:id="@+id/btnCerrar"
                     android:layout_width="wrap_content"

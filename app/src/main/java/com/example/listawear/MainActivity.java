@@ -12,7 +12,7 @@ import androidx.wear.widget.WearableRecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends Activity {
+public class  MainActivity extends Activity {
     private List<ItemsList> items = new ArrayList<>();
 
     @Override
@@ -30,11 +30,11 @@ public class MainActivity extends Activity {
 
         recyclerView.setLayoutManager(layoutManager);
 
-        items.add(new ItemsList(R.mipmap.flutter, "Flutter", "Curso de Flutter"));
-        items.add(new ItemsList(R.mipmap.java, "Java", "Curso de Java"));
-        items.add(new ItemsList(R.mipmap.cplus, "C#", "Curso de C#"));
-        items.add(new ItemsList(R.mipmap.php, "PHP", "Curso de PHP"));
-        items.add(new ItemsList(R.mipmap.javascript, "JavaScript", "Curso de Javascript"));
+        items.add(new ItemsList(R.drawable.access, "Access", "Curso de Access"));
+        items.add(new ItemsList(R.drawable.excel, "Excel", "Curso de Excel"));
+        items.add(new ItemsList(R.drawable.powerpoint, "PowerPoint", "Curso de PowerPoint"));
+        items.add(new ItemsList(R.drawable.publisher, "Publisher", "Curso de Publisher"));
+        items.add(new ItemsList(R.drawable.word, "Word", "Curso de Word"));
 
         ListAdapter listAdapter = new ListAdapter(items, new ListAdapter.AdapterCallback() {
             @Override
@@ -42,6 +42,7 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(getApplicationContext(), CardActivity.class);
                 intent.putExtra("titulo", items.get(itemPosition).getNameItem());
                 intent.putExtra("descripcion", items.get(itemPosition).getDescriptionItem());
+                intent.putExtra("imagen", items.get(itemPosition).getImageItem());
                 startActivity(intent);
             }
         });
